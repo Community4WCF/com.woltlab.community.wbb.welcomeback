@@ -1,0 +1,22 @@
+--- header.tpl
++++ header_patch.tpl
+@@ -222,7 +222,9 @@
+ 
+ 		{if $this->user->activationCode && REGISTER_ACTIVATION_METHOD == 1}<p class="warning">{lang}wcf.user.register.needsActivation{/lang}</p>{/if}
+ 
++		{if SHOW_WELCOMEBACK}
+ 		{if $this->session->isNew}<p class="info">{lang}wbb.header.welcomeBack{/lang}</p>{/if}
++		{/if}
+ 
+ 		{if MODULE_PM == 1 && $this->user->showPmPopup && $this->user->pmOutstandingNotifications && $this->user->getOutstandingNotifications()|count > 0}
+ 			<div class="info deletable" id="pmOutstandingNotifications">
+@@ -276,7 +278,9 @@
+ 
+ 	{elseif !$this->session->spiderID}
+ 
++		{if SHOW_WELCOMEBACK}
+ 		{if $this->session->isNew}<p class="info">{lang}wcf.user.register.welcome{/lang}</p>{/if}
++		{/if}
+ 
+ 	{/if}
+ 	{if OFFLINE == 1 && $this->user->getPermission('user.board.canViewBoardOffline')}
